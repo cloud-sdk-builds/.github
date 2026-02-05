@@ -30,6 +30,8 @@ jobs:
           npm view @aws-sdk/${{ github.event.repository.name }} versions --json > ./.github/tmp/versions.json
           npm install --prefix . semver@7.7.3
           node ./.github/tmp/release.mjs
+          chmod +x ./.github/tmp/first.sh
+          ./.github/tmp/first.sh
         env:
           REPO_NAME: ${{ github.event.repository.name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

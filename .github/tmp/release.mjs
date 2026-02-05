@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {readFileSync,existsSync,writeFileSync, write} from "node:fs";
+import {readFileSync,existsSync,writeFileSync} from "node:fs";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execSync } from "node:child_process";

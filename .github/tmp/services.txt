@@ -414,3 +414,6 @@ client-workspaces-thin-client
 client-workspaces-web
 client-workspaces
 client-xray
+lib-dynamodb
+lib-storage
+util-dynamodb
