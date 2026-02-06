@@ -41,7 +41,7 @@ const newbuildyml = replaceTrigger(buildymlold, getcron());
 
 writeFileSync(resolve(__dirname, "..","workflows","build.yml"), newbuildyml);
 
-execSync(`git rm :/.github/tmp/first.mjs :/.github/tmp/services.txt && git add ./../workflows/build.yml && git commit -S -m "ci: update release workflow" && git push origin HEAD`, {
+execSync(`git rm :/.github/tmp/first.mjs :/.github/tmp/services.txt && git add :/.github/workflows/build.yml && git commit -S -m "ci: update release workflow" && git push origin HEAD`, {
   env: {
     ...process.env,
     }
