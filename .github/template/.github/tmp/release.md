@@ -26,6 +26,8 @@ HTML
 
 HTML + SRI
 
+But Use importmap else you need write code and import with url but integrity wont be there
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs" integrity="{SRI_SHA}" crossorigin="anonymous"></script>
 ```
