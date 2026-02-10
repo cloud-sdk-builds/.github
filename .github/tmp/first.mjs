@@ -34,7 +34,7 @@ function replaceTrigger(oldcontent, mycron) {
     - cron: "${mycron}"`
   );
   updated = updated.replace("node ./.github/tmp/first.mjs", "");
-  updated = updated.replace("actions: write", "");
+  updated = updated.replaceAll("${{ secrets.GH_PAT }}","${{ secrets.GITHUB_TOKEN }}")
   return updated;
 }
 
