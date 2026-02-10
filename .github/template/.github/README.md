@@ -48,26 +48,30 @@ https://cdn.jsdelivr.net/gh/{orgName}/{repoName}/index.min.mjs
 
 ```html
 <!DOCTYPE html>
-<html>
-  <head>
-    <script type="importmap">
-      {
-        "imports": {
-          "@aws-sdk/{repoName}": "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"
-        },
-        "integrity": {
-          "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs": "{SRI_SHA}"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <script type="module">
-      import { } from "@aws-sdk/{repoName}";
-      // Refer to official SDK documentation for usage examples
-    </script>
-  </body>
+<html lang="en">
+      <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script type="importmap">
+                  {
+                    "imports": {
+                        "@aws-sdk/{repoName}": "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"
+                    },
+                      "integrity": {
+                        "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs": "{SRI_SHA}"
+                    }
+                  }
+            </script>
+      </head>
+      <body>
+            <h1>Hello World!</h1>
+            <script type="module">
+                  import { } from "@aws-sdk/{repoName}";
+                  // Refer AWS SDK for JavaScript V3 - Service Documentation
+            </script>
+      </body>
 </html>
+```
 ```
 
 ---
