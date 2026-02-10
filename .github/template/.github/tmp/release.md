@@ -33,16 +33,29 @@ HTML + SRI
 ImportMap
 
 ```html
-<script type="importmap">
-      {
-        "imports": {
-            "@aws-sdk/{repoName}": "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"
-        },
-          "integrity": {
-            "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs": "{SRI_SHA}"
-        }
-      }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script type="importmap">
+                  {
+                    "imports": {
+                        "@aws-sdk/{repoName}": "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"
+                    },
+                      "integrity": {
+                        "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs": "{SRI_SHA}"
+                    }
+                  }
+            </script>
+      </head>
+      <body>
+            <script type="module">
+                  import { } from "@aws-sdk/{repoName}";
+                  // Refer AWS SDK for JavaScript V3 - Service Documentation
+            </script>
+      </body>
+</html>
 ```
 
 ### 📦 [npm Source](https://www.npmjs.com)
