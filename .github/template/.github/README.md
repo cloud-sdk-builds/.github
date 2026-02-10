@@ -32,19 +32,45 @@ https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs
 ```
 
 SRI SHA Hash
+
 ```text
 {SRI_SHA}
 ```
 
 ### 📌 Latest Version
 
+CDN URL
+
 ```text
 https://cdn.jsdelivr.net/gh/{orgName}/{repoName}/index.min.mjs
+```
+
+SRI SHA Hash
+
+```
+This SRI SHA Hash changes dynamically when there is any new version release so stop using latest build in production without mentioning version number in the url. So Use latest version by mentioning its version number in url with its SHA integrity.
 ```
 
 ---
 
 ## 🧩 Example (Browser Usage)
+
+ImportMap
+
+```html
+<script type="importmap">
+      {
+        "imports": {
+            "@aws-sdk/{repoName}": "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"
+        },
+          "integrity": {
+            "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs": "{SRI_SHA}"
+        }
+      }
+</script>
+```
+
+Full Importmap Example
 
 ```html
 <!DOCTYPE html>
@@ -66,12 +92,11 @@ https://cdn.jsdelivr.net/gh/{orgName}/{repoName}/index.min.mjs
       <body>
             <h1>Hello World!</h1>
             <script type="module">
-                  import { } from "@aws-sdk/{repoName}";
+                  import {  } from "@aws-sdk/{repoName}";
                   // Refer AWS SDK for JavaScript V3 - Service Documentation
             </script>
       </body>
 </html>
-```
 ```
 
 ---
