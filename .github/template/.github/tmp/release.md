@@ -18,21 +18,22 @@ SRI
 {SRI_SHA}
 ```
 
-HTML
-
-```html
-<script src="https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"></script>
-```
-
-HTML + SRI
-
-But Use importmap else you need write code and import with url but integrity wont be there
-
-```html
-<script src="https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs" integrity="{SRI_SHA}" crossorigin="anonymous"></script>
-```
-
 ImportMap
+
+```html
+<script type="importmap">
+      {
+        "imports": {
+            "@aws-sdk/{repoName}": "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs"
+        },
+          "integrity": {
+            "https://cdn.jsdelivr.net/gh/{orgName}/{repoName}@{repoVersion}/index.min.mjs": "{SRI_SHA}"
+        }
+      }
+</script>
+```
+
+Full Importmap Example
 
 ```html
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ ImportMap
       <body>
             <h1>Hello World!</h1>
             <script type="module">
-                  import { } from "@aws-sdk/{repoName}";
+                  import {  } from "@aws-sdk/{repoName}";
                   // Refer AWS SDK for JavaScript V3 - Service Documentation
             </script>
       </body>
