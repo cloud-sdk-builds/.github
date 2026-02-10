@@ -50,6 +50,7 @@ ImportMap
             </script>
       </head>
       <body>
+            <h1>Hello World!</h1>
             <script type="module">
                   import { } from "@aws-sdk/{repoName}";
                   // Refer AWS SDK for JavaScript V3 - Service Documentation
