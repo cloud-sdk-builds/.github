@@ -42,9 +42,17 @@ const newbuildyml = replaceTrigger(buildymlold, getcron());
 
 writeFileSync(resolve(__dirname, "..","workflows","build.yml"), newbuildyml);
 
-execSync(`git rm :/.github/tmp/first.mjs :/.github/tmp/services.txt && git add :/.github/workflows/build.yml && git commit -S -m "ci: update release workflow" && git push origin HEAD`, {
-  env: {
-    ...process.env,
-    GH_TOKEN: process.env["GH_PAT"]
-    },stdio:{"inherit"}});
-process.exit(0):
+execSync(
+  `git remote set-url origin https://${process.env.GH_PAT}@github.com/${process.env.ORG_NAME}/${process.env.REPO_NAME}.git`,
+  { stdio: "inherit",env:{...process.env,GH_TOKEN:process.env.GH_PAT} }
+);
+
+execSync(
+  `git rm :/.github/tmp/first.mjs :/.github/tmp/services.txt && git add :/.github/workflows/build.yml && git commit -S -m "ci: update release workflow" && git push origin HEAD`,
+  { stdio: "inherit" ,env:{...process.env,GH_TOKEN:process.env.GH_PAT}}
+);
+
+execSync(
+  `git remote set-url origin https://github.com/${process.env.ORG_NAME}/${process.env.REPO_NAME}.git`,
+  { stdio: "inherit" }
+);
