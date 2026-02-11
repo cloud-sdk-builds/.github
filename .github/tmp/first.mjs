@@ -34,7 +34,7 @@ function replaceTrigger(oldcontent, mycron) {
     - cron: "${mycron}"`
   );
   updated = updated.replace("node ./.github/tmp/first.mjs", "");
-  updated = updated.replaceAll("${{ secrets.GH_PAT }}","${{ secrets.GITHUB_TOKEN }}");
+  updated = updated.replace("GH_PAT: ${{ secrets.GH_PAT }}","");
   return updated;
 }
 
@@ -45,5 +45,6 @@ writeFileSync(resolve(__dirname, "..","workflows","build.yml"), newbuildyml);
 execSync(`git rm :/.github/tmp/first.mjs :/.github/tmp/services.txt && git add :/.github/workflows/build.yml && git commit -S -m "ci: update release workflow" && git push origin HEAD`, {
   env: {
     ...process.env,
-    }
-});
+    GH_TOKEN: process.env["GH_PAT"]
+    },stdio:{"inherit"}});
+process.exit(0):
