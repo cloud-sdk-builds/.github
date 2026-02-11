@@ -43,7 +43,7 @@ const newbuildyml = replaceTrigger(buildymlold, getcron());
 writeFileSync(resolve(__dirname, "..","workflows","build.yml"), newbuildyml);
 
 execSync(
-  `git remote set-url origin https://${process.env.GH_PAT}@github.com/${process.env.ORG_NAME}/${process.env.REPO_NAME}.git`,
+  `git remote set-url origin https://x-access-token:${process.env.GH_PAT}@github.com/${process.env.ORG_NAME}/${process.env.REPO_NAME}.git`,
   { stdio: "inherit",env:{...process.env,GH_TOKEN:process.env.GH_PAT} }
 );
 
