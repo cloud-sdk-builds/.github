@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6.0.2
         with:
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Node.js
         uses: actions/setup-node@v6.2.0
         with:
@@ -36,5 +36,6 @@ jobs:
           node ./.github/tmp/first.mjs
         env:
           REPO_NAME: ${{ github.event.repository.name }}
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
           ORG_NAME: ${{ github.repository_owner }}
