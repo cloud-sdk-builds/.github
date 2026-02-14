@@ -8,6 +8,7 @@ on:
       - 'LICENSE'
 jobs:
   build:
+    if: false
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -38,6 +39,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG_NAME: ${{ github.repository_owner }}
   first:
+    if: ${{ always() }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
