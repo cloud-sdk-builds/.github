@@ -33,8 +33,6 @@ function replaceTrigger(oldcontent, mycron) {
     `schedule:
     - cron: "${mycron}"`
   );
-  updated = updated.replace("node ./.github/tmp/first.mjs", "");
-  updated = updated.replace("GH_PAT: ${{ secrets.GH_PAT }}","");
   return updated.replace("f: ${{ always() }}","f: false");
 };
 const newbuildyml = replaceTrigger(buildymlold, getcron());
