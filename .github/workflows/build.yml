@@ -61,6 +61,10 @@ jobs:
           git config --global gpg.program gpg
           git config --global user.signingkey '${{ vars.GPG_KEY_ID }}'
           node ./.github/tmp/first.mjs
+          git rm ./.github/tmp/first.mjs ./.github/tmp/services.txt
+          git add ./.github/workflows/build.yml
+          git commit -S -m "ci: update release workflow"
+          git push origin HEAD
         env:
           REPO_NAME: ${{ github.event.repository.name }}
           GH_TOKEN: ${{ secrets.GH_PAT }}
