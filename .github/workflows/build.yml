@@ -44,6 +44,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Wait Some Time
+      - shell: bash
+        run: sleep 60
       - name: Checkout code
         uses: actions/checkout@v6.0.2
         with:
@@ -61,6 +64,8 @@ jobs:
           git config --global commit.gpgsign true
           git config --global gpg.program gpg
           git config --global user.signingkey '${{ vars.GPG_KEY_ID }}'
+          git pull origin main
+          sleep 10
           node ./.github/tmp/first.mjs
           git rm ./.github/tmp/first.mjs ./.github/tmp/services.txt
           git add ./.github/workflows/build.yml
