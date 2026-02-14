@@ -45,7 +45,7 @@ jobs:
       contents: write
     steps:
       - name: Wait Some Time
-      - shell: bash
+        shell: bash
         run: sleep 60
       - name: Checkout code
         uses: actions/checkout@v6.0.2
